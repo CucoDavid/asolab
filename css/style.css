@@ -1,0 +1,739 @@
+ /* ==========================================================================
+       1. VARIABLES DE DISEÑO Y SISTEMA VISUAL
+       Estética editorial contemporánea: paleta cálida de papel piedra, tinta 
+       carbón profunda y acento terracota/cobre arquitectónico.
+       ========================================================================== */
+ :root {
+     --bg-principal: #F4F2ED;
+     --bg-secundario: #EAE6DF;
+     --bg-oscuro: #141413;
+     --texto-principal: #141413;
+     --texto-secundario: #52504B;
+     --texto-inverso: #F4F2ED;
+     --texto-inverso-suave: #A8A49C;
+     --acento: #C84B31;
+     --acento-hover: #A63A23;
+     --borde: #D5D0C5;
+     --borde-oscuro: #2C2B29;
+
+     --fuente-display: 'Instrument Serif', Georgia, serif;
+     --fuente-cuerpo: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+     --ancho-maximo: 1280px;
+     --radio-sutil: 2px;
+     --transicion: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ }
+
+ /* ==========================================================================
+       2. REINICIO Y ESTILOS BASE
+       ========================================================================== */
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ html {
+     scroll-behavior: smooth;
+     font-size: 16px;
+ }
+
+ body {
+     background-color: var(--bg-principal);
+     color: var(--texto-principal);
+     font-family: var(--fuente-cuerpo);
+     line-height: 1.6;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+ }
+
+ img {
+     max-width: 100%;
+     display: block;
+ }
+
+ a {
+     color: inherit;
+     text-decoration: none;
+ }
+
+ ul {
+     list-style: none;
+ }
+
+ .contenedor {
+     width: 100%;
+     max-width: var(--ancho-maximo);
+     margin: 0 auto;
+     padding: 0 2rem;
+ }
+
+ /* Etiquetas de sección estilo índice editorial */
+ .etiqueta-indice {
+     display: inline-block;
+     font-size: 0.75rem;
+     font-weight: 600;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: var(--texto-secundario);
+     margin-bottom: 1.25rem;
+ }
+
+ .etiqueta-indice span {
+     color: var(--acento);
+     margin-right: 0.5rem;
+ }
+
+ /* ==========================================================================
+       3. SISTEMA DE BOTONES Y LLAMADAS A LA ACCIÓN
+       ========================================================================== */
+ .btn {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.6rem;
+     padding: 0.875rem 1.75rem;
+     font-family: var(--fuente-cuerpo);
+     font-size: 0.9rem;
+     font-weight: 600;
+     letter-spacing: 0.01em;
+     border-radius: var(--radio-sutil);
+     border: 1px solid transparent;
+     cursor: pointer;
+     transition: var(--transicion);
+ }
+
+ .btn-primario {
+     background-color: var(--texto-principal);
+     color: var(--texto-inverso);
+     border-color: var(--texto-principal);
+ }
+
+ .btn-primario:hover,
+ .btn-primario:focus-visible {
+     background-color: var(--acento);
+     border-color: var(--acento);
+     color: #FFFFFF;
+ }
+
+ .btn-secundario {
+     background-color: transparent;
+     color: var(--texto-principal);
+     border-color: var(--texto-principal);
+ }
+
+ .btn-secundario:hover,
+ .btn-secundario:focus-visible {
+     background-color: var(--texto-principal);
+     color: var(--texto-inverso);
+ }
+
+ .btn-acento {
+     background-color: var(--acento);
+     color: #FFFFFF;
+     border-color: var(--acento);
+ }
+
+ .btn-acento:hover,
+ .btn-acento:focus-visible {
+     background-color: var(--acento-hover);
+     border-color: var(--acento-hover);
+ }
+
+ .btn-pequeno {
+     padding: 0.625rem 1.25rem;
+     font-size: 0.85rem;
+ }
+
+ .enlace-flecha {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.45rem;
+     font-size: 0.9rem;
+     font-weight: 600;
+     color: var(--texto-principal);
+     border-bottom: 1px solid var(--texto-principal);
+     padding-bottom: 0.2rem;
+     transition: var(--transicion);
+ }
+
+ .enlace-flecha:hover {
+     color: var(--acento);
+     border-color: var(--acento);
+ }
+
+ /* ==========================================================================
+       4. NAVEGACIÓN PRINCIPAL
+       ========================================================================== */
+ .cabecera {
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     background-color: rgba(244, 242, 237, 0.94);
+     backdrop-filter: blur(8px);
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .nav-contenedor {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     height: 80px;
+ }
+
+ .logotipo {
+     display: flex;
+     align-items: center;
+     gap: 0.65rem;
+     font-weight: 700;
+     font-size: 1rem;
+     letter-spacing: 0.08em;
+     text-transform: uppercase;
+     color: var(--texto-principal);
+ }
+
+ .logotipo-marca {
+     width: 14px;
+     height: 14px;
+     background-color: var(--acento);
+     display: inline-block;
+ }
+
+ .nav-enlaces {
+     display: flex;
+     align-items: center;
+     gap: 2.25rem;
+ }
+
+ .nav-enlaces a {
+     font-size: 0.9rem;
+     font-weight: 500;
+     color: var(--texto-secundario);
+     transition: var(--transicion);
+ }
+
+ .nav-enlaces a:hover,
+ .nav-enlaces a:focus-visible {
+     color: var(--texto-principal);
+ }
+
+ /* ==========================================================================
+       5. SECCIÓN PRINCIPAL (HERO)
+       ========================================================================== */
+ .hero {
+     padding: 5.5rem 0 6rem;
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .hero-grid {
+     display: grid;
+     grid-template-columns: 1.15fr 0.85fr;
+     gap: 4rem;
+     align-items: end;
+ }
+
+ .hero-titulo {
+     font-family: var(--fuente-display);
+     font-size: clamp(3.25rem, 6.2vw, 5.5rem);
+     font-weight: 400;
+     line-height: 0.98;
+     letter-spacing: -0.02em;
+     color: var(--texto-principal);
+     margin-bottom: 1.75rem;
+ }
+
+ .hero-titulo em {
+     font-style: italic;
+     color: var(--acento);
+ }
+
+ .hero-descripcion {
+     font-size: 1.125rem;
+     color: var(--texto-secundario);
+     max-width: 540px;
+     margin-bottom: 2.5rem;
+     line-height: 1.65;
+ }
+
+ .hero-acciones {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 1rem;
+     align-items: center;
+ }
+
+ .hero-imagen-marco {
+     position: relative;
+     border: 1px solid var(--borde);
+     background-color: var(--bg-secundario);
+     padding: 0.75rem;
+ }
+
+ .hero-imagen-marco img {
+     width: 100%;
+     height: 460px;
+     object-fit: cover;
+     filter: contrast(1.04) saturate(0.92);
+ }
+
+ .hero-pie-foto {
+     display: flex;
+     justify-content: space-between;
+     font-size: 0.75rem;
+     color: var(--texto-secundario);
+     padding-top: 0.65rem;
+     letter-spacing: 0.03em;
+ }
+
+ /* ==========================================================================
+       6. PRESENTACIÓN (NOSOTROS)
+       ========================================================================== */
+ .presentacion {
+     padding: 6.5rem 0;
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .presentacion-grid {
+     display: grid;
+     grid-template-columns: 0.4fr 0.6fr;
+     gap: 4rem;
+     align-items: start;
+ }
+
+ .presentacion-titulo {
+     font-family: var(--fuente-display);
+     font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+     font-weight: 400;
+     line-height: 1.08;
+     margin-bottom: 1.75rem;
+ }
+
+ .presentacion-texto p {
+     font-size: 1.05rem;
+     color: var(--texto-secundario);
+     margin-bottom: 1.5rem;
+     line-height: 1.75;
+ }
+
+ .presentacion-metricas {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 2rem;
+     margin-top: 3rem;
+     padding-top: 2rem;
+     border-top: 1px solid var(--borde);
+ }
+
+ .metrica-valor {
+     font-family: var(--fuente-display);
+     font-size: 2.5rem;
+     line-height: 1;
+     color: var(--texto-principal);
+     margin-bottom: 0.4rem;
+ }
+
+ .metrica-etiqueta {
+     font-size: 0.85rem;
+     color: var(--texto-secundario);
+ }
+
+ /* ==========================================================================
+       7. SERVICIOS (DISEÑO EDITORIAL POR FILAS ESTRUCTURADAS)
+       ========================================================================== */
+ .servicios {
+     padding: 6.5rem 0;
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .servicios-cabecera {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-end;
+     gap: 2rem;
+     margin-bottom: 4rem;
+ }
+
+ .servicios-titulo {
+     font-family: var(--fuente-display);
+     font-size: clamp(2.5rem, 4vw, 3.5rem);
+     font-weight: 400;
+     line-height: 1.05;
+     max-width: 600px;
+ }
+
+ .servicio-fila {
+     display: grid;
+     grid-template-columns: 80px 1.1fr 1.3fr auto;
+     gap: 2.5rem;
+     align-items: start;
+     padding: 2.75rem 0;
+     border-top: 1px solid var(--borde);
+     transition: var(--transicion);
+ }
+
+ .servicio-fila:last-child {
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .servicio-numero {
+     font-family: var(--fuente-display);
+     font-size: 1.75rem;
+     color: var(--acento);
+     line-height: 1.2;
+ }
+
+ .servicio-nombre {
+     font-size: 1.4rem;
+     font-weight: 600;
+     letter-spacing: -0.01em;
+     color: var(--texto-principal);
+ }
+
+ .servicio-detalle p {
+     color: var(--texto-secundario);
+     font-size: 0.98rem;
+     margin-bottom: 1rem;
+     line-height: 1.65;
+ }
+
+ .servicio-alcance {
+     font-size: 0.82rem;
+     font-weight: 600;
+     color: var(--texto-principal);
+     letter-spacing: 0.02em;
+ }
+
+ /* ==========================================================================
+       8. DIFERENCIACIÓN (SECCIÓN EN CONTRASTE OSCURO)
+       ========================================================================== */
+ .diferenciacion {
+     background-color: var(--bg-oscuro);
+     color: var(--texto-inverso);
+     padding: 6.5rem 0;
+ }
+
+ .diferenciacion .etiqueta-indice {
+     color: var(--texto-inverso-suave);
+ }
+
+ .diferenciacion-cabecera {
+     max-width: 720px;
+     margin-bottom: 4.5rem;
+ }
+
+ .diferenciacion-titulo {
+     font-family: var(--fuente-display);
+     font-size: clamp(2.4rem, 4vw, 3.5rem);
+     font-weight: 400;
+     line-height: 1.08;
+     margin-bottom: 1.25rem;
+ }
+
+ .diferenciacion-subtitulo {
+     color: var(--texto-inverso-suave);
+     font-size: 1.05rem;
+ }
+
+ .pilares-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     border-top: 1px solid var(--borde-oscuro);
+     border-left: 1px solid var(--borde-oscuro);
+ }
+
+ .pilar-item {
+     padding: 2.75rem;
+     border-right: 1px solid var(--borde-oscuro);
+     border-bottom: 1px solid var(--borde-oscuro);
+ }
+
+ .pilar-titulo {
+     font-size: 1.25rem;
+     font-weight: 600;
+     margin-bottom: 0.85rem;
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+
+ .pilar-titulo::before {
+     content: "";
+     width: 8px;
+     height: 8px;
+     background-color: var(--acento);
+     display: inline-block;
+ }
+
+ .pilar-descripcion {
+     color: var(--texto-inverso-suave);
+     font-size: 0.96rem;
+     line-height: 1.7;
+ }
+
+ .diferenciacion-cierre {
+     margin-top: 3.5rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 1.5rem;
+ }
+
+ .diferenciacion-cierre p {
+     font-family: var(--fuente-display);
+     font-size: 1.75rem;
+     color: var(--texto-inverso);
+ }
+
+ /* ==========================================================================
+       9. CONTACTO Y FORMULARIO FUNCIONAL
+       ========================================================================== */
+ .contacto {
+     padding: 6.5rem 0;
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .contacto-grid {
+     display: grid;
+     grid-template-columns: 0.95fr 1.05fr;
+     gap: 5rem;
+     align-items: start;
+ }
+
+ .contacto-titulo {
+     font-family: var(--fuente-display);
+     font-size: clamp(2.5rem, 4vw, 3.6rem);
+     font-weight: 400;
+     line-height: 1.05;
+     margin-bottom: 1.5rem;
+ }
+
+ .contacto-intro {
+     color: var(--texto-secundario);
+     font-size: 1.05rem;
+     margin-bottom: 2.5rem;
+     line-height: 1.7;
+ }
+
+ .contacto-datos {
+     border-top: 1px solid var(--borde);
+     padding-top: 2rem;
+     display: flex;
+     flex-direction: column;
+     gap: 1.25rem;
+ }
+
+ .dato-bloque span {
+     display: block;
+     font-size: 0.75rem;
+     text-transform: uppercase;
+     letter-spacing: 0.1em;
+     color: var(--texto-secundario);
+     margin-bottom: 0.25rem;
+ }
+
+ .dato-bloque a,
+ .dato-bloque p {
+     font-size: 1.05rem;
+     font-weight: 600;
+     color: var(--texto-principal);
+ }
+
+ .dato-bloque a:hover {
+     color: var(--acento);
+ }
+
+ /* Formulario editorial limpio */
+ .formulario-proyecto {
+     background-color: var(--bg-secundario);
+     border: 1px solid var(--borde);
+     padding: 2.75rem;
+ }
+
+ .campo-grupo {
+     margin-bottom: 1.5rem;
+ }
+
+ .campo-grupo label {
+     display: block;
+     font-size: 0.85rem;
+     font-weight: 600;
+     margin-bottom: 0.5rem;
+     color: var(--texto-principal);
+ }
+
+ .campo-grupo input,
+ .campo-grupo select,
+ .campo-grupo textarea {
+     width: 100%;
+     padding: 0.85rem 1rem;
+     font-family: var(--fuente-cuerpo);
+     font-size: 0.95rem;
+     color: var(--texto-principal);
+     background-color: var(--bg-principal);
+     border: 1px solid var(--borde);
+     border-radius: var(--radio-sutil);
+     transition: var(--transicion);
+ }
+
+ .campo-grupo input:focus,
+ .campo-grupo select:focus,
+ .campo-grupo textarea:focus {
+     outline: none;
+     border-color: var(--texto-principal);
+     background-color: #FFFFFF;
+ }
+
+ .campo-grupo textarea {
+     min-height: 120px;
+     resize: vertical;
+ }
+
+ .formulario-nota {
+     margin-top: 1rem;
+     font-size: 0.8rem;
+     color: var(--texto-secundario);
+ }
+
+ /* Confirmación visual pura en CSS al enviar el formulario mediante ancla */
+ .mensaje-confirmacion {
+     display: none;
+     margin-top: 1.5rem;
+     padding: 1.25rem;
+     background-color: var(--bg-principal);
+     border-left: 3px solid var(--acento);
+     font-size: 0.92rem;
+     color: var(--texto-principal);
+ }
+
+ #solicitud-enviada:target {
+     display: block;
+ }
+
+ /* ==========================================================================
+       10. PIE DE PÁGINA
+       ========================================================================== */
+ .pie-pagina {
+     padding: 4rem 0 3rem;
+     background-color: var(--bg-principal);
+ }
+
+ .pie-superior {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     flex-wrap: wrap;
+     gap: 2.5rem;
+     padding-bottom: 3rem;
+     border-bottom: 1px solid var(--borde);
+ }
+
+ .pie-marca p {
+     margin-top: 0.85rem;
+     font-size: 0.9rem;
+     color: var(--texto-secundario);
+     max-width: 340px;
+ }
+
+ .pie-navegacion {
+     display: flex;
+     gap: 2rem;
+     flex-wrap: wrap;
+ }
+
+ .pie-navegacion a {
+     font-size: 0.9rem;
+     font-weight: 500;
+     color: var(--texto-secundario);
+     transition: var(--transicion);
+ }
+
+ .pie-navegacion a:hover {
+     color: var(--texto-principal);
+ }
+
+ .pie-inferior {
+     padding-top: 2rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 1rem;
+     font-size: 0.82rem;
+     color: var(--texto-secundario);
+ }
+
+ /* ==========================================================================
+       11. DISEÑO ADAPTABLE (TABLETS Y MÓVILES)
+       ========================================================================== */
+ @media (max-width: 960px) {
+
+     .hero-grid,
+     .presentacion-grid,
+     .contacto-grid {
+         grid-template-columns: 1fr;
+         gap: 2.75rem;
+     }
+
+     .hero-imagen-marco img {
+         height: 360px;
+     }
+
+     .servicio-fila {
+         grid-template-columns: 1fr;
+         gap: 1rem;
+     }
+
+     .pilares-grid {
+         grid-template-columns: 1fr;
+     }
+ }
+
+ @media (max-width: 720px) {
+     .contenedor {
+         padding: 0 1.25rem;
+     }
+
+     .nav-contenedor {
+         flex-wrap: wrap;
+         height: auto;
+         padding: 1rem 0;
+         gap: 1rem;
+     }
+
+     .nav-enlaces {
+         order: 3;
+         width: 100%;
+         justify-content: space-between;
+         gap: 1rem;
+         padding-top: 0.75rem;
+         border-top: 1px solid var(--borde);
+     }
+
+     .hero {
+         padding: 3.5rem 0 4.5rem;
+     }
+
+     .presentacion,
+     .servicios,
+     .diferenciacion,
+     .contacto {
+         padding: 4.5rem 0;
+     }
+
+     .presentacion-metricas {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+     }
+
+     .servicios-cabecera {
+         flex-direction: column;
+         align-items: flex-start;
+     }
+
+     .formulario-proyecto {
+         padding: 1.75rem;
+     }
+ }
